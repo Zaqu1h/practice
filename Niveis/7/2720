@@ -1,0 +1,25 @@
+import sys
+
+input = sys.stdin.readline
+
+testes = int(input())
+
+for _ in range(testes):
+    disponiveis, ganhos = map(int, input().split())
+
+    presentes = []
+
+    for _ in range(disponiveis):
+        id_, a, l, c = map(int, input().split())
+        volume = a * l * c
+        presentes.append(( -volume, id_ ))
+
+    presentes.sort()
+
+    selecionados = presentes[:ganhos]
+
+    ids = [x[1] for x in selecionados]
+
+    ids.sort()
+
+    print(" ".join(map(str, ids)))
